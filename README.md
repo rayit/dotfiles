@@ -9,14 +9,7 @@ Terminal: Alacritty (see installatio instuctions of their website)
 Term: Fish
 WM: Suchless dwm
 
-Programs needed: feh picom fish 
-
-## CHANGELOG
-
-- 2021-11-15    Fixed icons problem by added fonts
-                Added bash script for status bar
-                Used DT vimrc
-              
+Programs needed: feh picom fish ...
 
 All sort of files for configuring linux/bsd
 
