@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
     Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
 
+    Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -64,6 +65,7 @@ set incsearch                   " Incremental search
 set hidden                      " Needed to keep multiple buffers open
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
+set nowrap                      " Long lines should not wrap..
 set t_Co=256                    " Set if term supports 256 colors.
 " set number relativenumber       " Display line numbers
 set nonumber
