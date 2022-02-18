@@ -27,3 +27,8 @@ Create the installation directories, download, and install Vim-Plug from Github.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+
+### Extra
+
+pystardust/ytfzf
+
