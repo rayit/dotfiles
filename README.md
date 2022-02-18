@@ -30,5 +30,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 ### Extra
 
-pystardust/ytfzf
+> Youtube pystardust/ytfzf
 
+> password storage: https://www.passwordstore.org/
