@@ -32,4 +32,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 > Youtube pystardust/ytfzf
 
-> password storage: https://www.passwordstore.org/
+> password storage: https://www.passwordstore.org/   https://www.cloudsavvyit.com/8817/how-to-use-pass-a-command-line-password-manager-for-linux-systems/
