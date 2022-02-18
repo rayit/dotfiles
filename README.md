@@ -30,6 +30,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 ### Extra
 
-> Youtube pystardust/ytfzf
+> Youtube: pystardust/ytfzf
 
 > password storage: https://www.passwordstore.org/   https://www.cloudsavvyit.com/8817/how-to-use-pass-a-command-line-password-manager-for-linux-systems/
+
+> playing movies: https://github.com/bugswriter/notflix
