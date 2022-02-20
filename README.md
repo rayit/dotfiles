@@ -1,13 +1,13 @@
 # DOTFILES RayIT
 
 ## Description
-Configuration files used for my BSD and Linux desktop
+Configuration files used for my Gentoo linux
 
 ## Programs
 
-Terminal: Alacritty (see installatio instuctions of their website)
-Term: Fish
-WM: Suchless dwm
+Terminal: tilda
+with: starship
+WM: Suckless dwm
 
 Programs needed: feh picom fish ...
 
@@ -35,3 +35,5 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 > password storage: https://www.passwordstore.org/   https://www.cloudsavvyit.com/8817/how-to-use-pass-a-command-line-password-manager-for-linux-systems/
 
 > playing movies: https://github.com/bugswriter/notflix
+
+
