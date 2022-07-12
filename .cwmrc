@@ -1,0 +1,145 @@
+# RayIT 20220712
+# ================
+# Quick notes
+# ================
+
+# The following modifiers are recognised:
+#
+#      C       Control key.
+#      M       Meta key.
+#      S       Shift key.
+#      4       Mod4 (windows) key.
+#      5       Mod5 (AltGr) key.
+
+# 4-Enter spawns a new xterm
+# CM-= maximizes the window vertically
+# CMS-= maximizes the window horizontally
+# MS-/ spawns exec menu (MS-/, then "firefox" launches Firefox)
+# CM-[n] selects window group [n]
+# CM-0 selects all groups
+# CM-g adds currently selected window to currently selected group
+# CMS-r restarts cwm (re-reading .cwmrc)
+# CMS-q quits
+# Use xprop to click on the window you care about to obtain WM_CLASS
+
+
+           # ******************** Windows decoration ******************* #
+
+borderwidth 0
+#color activeborder   grey
+#color inactiveborder black
+
+            # ******************** Virtual Desktops ******************* #
+
+
+# ================
+# Virtual Desktops
+# ================
+#
+bind-key 4-1        group-only-1
+bind-key 4-2        group-only-2
+bind-key 4-3        group-only-3
+bind-key 4-4        group-only-4
+bind-key 4-5        group-only-5
+bind-key 4-6        group-only-6
+bind-key 4-7        group-only-7
+bind-key 4-8        group-only-8
+bind-key 4-9        group-only-9
+bind-key 4S-1       window-movetogroup-1
+bind-key 4S-2       window-movetogroup-2
+bind-key 4S-3       window-movetogroup-3
+bind-key 4S-4       window-movetogroup-4
+bind-key 4S-5       window-movetogroup-5
+bind-key 4S-6       window-movetogroup-6
+bind-key 4S-7       window-movetogroup-7
+bind-key 4S-8       window-movetogroup-8
+bind-key 4S-9       window-movetogroup-9
+
+# Now, if I type M-2, it only shows windows in window group 2.
+# And, I can more easily move windows to other groups with MS-[n].
+# For instance, shift+alt+2 will move the current window to group 2
+
+# Turn on sticky-group mode, so that windows launched in current group
+# stick to that group per default
+sticky yes
+
+# I am using -class "mutt" with xterm to run mutt
+autogroup 1 "xterm,mutt"
+
+# Launch web Telegram/Whatsapp/skype with
+# chrome as an app, which removes
+# deco and uses particular WM_CLASS
+# (see bind section)
+autogroup 2 "crx_nigookeodlehlnjcpdfifmophdcbjoma,Chromium-browser"
+autogroup 2 "web.whatsapp.com,Chromium-browser"
+autogroup 2 "web.skype.com__es,Chromium-browser"
+autogroup 2 "crx_bikioccmkafdpakkkcpdbppfkghcmihk,Chromium-browser"
+autogroup 2 "web.telegram.org,Chromium-browser"
+autogroup 2 "crx_djjkifoefibfoodilnhkmbhmadbgacni,Chromium-browser"
+autogroup 2 "Pidgin,Pidgin"
+# Rest of chrom tabs to Desktop#4
+autogroup 4 "chromium-browser,Chromium-browser"
+
+# Place firefox in Desktop#4
+autogroup 4 "Navigator,Firefox"
+
+# xclock and battery check in all desktops
+sticky yes
+autogroup 0 XClock
+
+# Place qemu with ubuntu linux in Desktop#3
+autogroup 3 "qemu-system-x86_64,Qemu-system-x86_64"
+
+
+            # ******************** Bind definitions ******************* #
+
+# In general, I use the win (4) key for "applications" and the alt (M) key for
+# "configuration programmes".
+#
+# To find out what the key's name is, use xev(1)
+
+# Use alt-d or alt-s to configure display (always forget if it's _d_isplay or _s_creen)
+bind-key M-d xfce4-display-settings
+bind-key M-s xfce4-display-settings
+
+# ******************** Applications bindings
+
+# Redefine CM-Return to use some definitions of xterm
+# For available fonts, check xlsfonts
+# For Ubuntu fonts, install ubuntu-fonts
+# If not available, use Bitstream Vera Sans Mono
+bind-key 4-Return 'xterm -fa "Ubuntu Mono" +sb -fs 10 -cc 46:48,47:48,63:48,37:48,38:48,35:48,58:48,45:48,126:48,43:48,61:48,64:48,36:48 -bg "#2f3238" -fg white'
+
+# Define CM-r to login as root on xterm
+bind-key 4-r 'xterm -fa "Ubuntu Mono" +sb -fs 10 -cc 46:48,47:48,63:48,37:48,38:48,35:48,58:48,45:48,126:48,43:48,61:48,64:48,36:48 -bg black -fg red -title "BE CAREFUL" -e login root'
+
+# lock the screen with 4-l
+bind-key 4-l slock
+
+# Use win and t, w for web Telegram and Whatsapp. By running it with the "--app" flag
+# window decoration seems to be removed but, more imporant, WM_CLASS inherits the URL
+# we call, which allows us to autogroup it where we wish (in my case, Desktop#2)
+# When in China, use proxy server after a ssh -D 8000 to a server elsewhere:
+# --proxy-server="socks5://127.0.0.1:8000"
+bind-key 4-t 'iridium --proxy-server="socks5://127.0.0.1:8000" --app=https://web.telegram.org/'
+bind-key 4-w "iridium --app=https://web.whatsapp.com/"
+
+bind-key CMS-r reload
+
+# bind-key 4-p "rofi -combi-modi window,drun,ssh -theme solarized -font \"hack 10\" -show combi"
+bind-key 4-p "rofi -combi-modi window,drun,ssh -theme solarized -font \"hack 10\" -show combi -icon-theme \"Papirus\" -show-icons"
+
+bind-key 4-h window-htile
+bind-key 4-v window-vtile
+
+bind-key 4-c window-close
+
+# Mouse bindings
+bind-mouse "1" menu-window
+bind-mouse "2" menu-group
+bind-mouse "3" menu-cmd
+bind-mouse 4-1 window-move
+bind-mouse CM-1 window-group
+bind-mouse 4-3 window-resize
+# bind-mouse 4-3 window-lower
+# bind-mouse 4S-3 window-hide
