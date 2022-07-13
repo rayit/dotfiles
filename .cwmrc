@@ -23,11 +23,30 @@
 # Use xprop to click on the window you care about to obtain WM_CLASS
 
 
-           # ******************** Windows decoration ******************* #
-
+# ******************** Windows decoration ******************* #
 borderwidth 0
 #color activeborder   grey
 #color inactiveborder black
+vtile 50
+htile 50
+gap 0 0 0 0
+color activeborder red
+color inactiveborder black
+snapdist 3
+
+# Theme Settings
+borderwidth 0
+color activeborder "#282a36"
+color inactiveborder "#282a36"
+color menubg "#282a36"
+color menufg "#44475a"
+color font "#f8f8f2"
+color selfont "#f8f8f2"
+
+# Set Font
+fontname "IBMPlexMono:size=14"
+# set font for menus
+fontname "fixed:pixelsize=13:style=semicondensed"
 
 # automatically add new windows to the current group
 sticky yes
@@ -36,16 +55,11 @@ snapdist 4
 # leave a gap for xclock
 gap 0 14 0 0
 
-# set font for menus
-fontname "fixed:pixelsize=13:style=semicondensed"
-
 # remove all default keybindings
 unbind-key all
 
 
-            # ******************** Virtual Desktops ******************* #
-
-
+# ******************** Virtual Desktops ******************* #
 # ================
 # Virtual Desktops
 # ================
@@ -149,6 +163,16 @@ bind-key 4-v window-vtile
 
 bind-key 4S-c window-close
 
+# Guit
+bind-key 4S-q quit
+bind-key 4S-r restart
+bind-key 4S-f window-fillscreen
+bind-key 4-j            window-cycle
+bind-key 4-k            window-rcycle
+# Application Keybindings
+bind-key 4-comma        voldown
+bind-key 4-period       volup
+
 # Mouse bindings
 bind-mouse "1" menu-window
 bind-mouse "2" menu-group
@@ -158,3 +182,10 @@ bind-mouse CM-1 window-group
 bind-mouse 4-3 window-resize
 # bind-mouse 4-3 window-lower
 # bind-mouse 4S-3 window-hide
+
+# Applications Menu
+command Browser google-chrome-stable
+command Gimp gimp
+command idea idea
+command term mate-terminal
+
