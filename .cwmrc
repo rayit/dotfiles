@@ -29,6 +29,20 @@ borderwidth 0
 #color activeborder   grey
 #color inactiveborder black
 
+# automatically add new windows to the current group
+sticky yes
+# snap windows to edges at 4 pixels distance
+snapdist 4
+# leave a gap for xclock
+gap 0 14 0 0
+
+# set font for menus
+fontname "fixed:pixelsize=13:style=semicondensed"
+
+# remove all default keybindings
+unbind-key all
+
+
             # ******************** Virtual Desktops ******************* #
 
 
@@ -108,13 +122,13 @@ bind-key M-s xfce4-display-settings
 # For available fonts, check xlsfonts
 # For Ubuntu fonts, install ubuntu-fonts
 # If not available, use Bitstream Vera Sans Mono
-bind-key 4-Return 'xterm -fa "Ubuntu Mono" +sb -fs 10 -cc 46:48,47:48,63:48,37:48,38:48,35:48,58:48,45:48,126:48,43:48,61:48,64:48,36:48 -bg "#2f3238" -fg white'
+bind-key 4S-Return 'xterm -fa "Ubuntu Mono" +sb -fs 10 -cc 46:48,47:48,63:48,37:48,38:48,35:48,58:48,45:48,126:48,43:48,61:48,64:48,36:48 -bg "#2f3238" -fg white'
 
 # Define CM-r to login as root on xterm
-bind-key 4-r 'xterm -fa "Ubuntu Mono" +sb -fs 10 -cc 46:48,47:48,63:48,37:48,38:48,35:48,58:48,45:48,126:48,43:48,61:48,64:48,36:48 -bg black -fg red -title "BE CAREFUL" -e login root'
+bind-key 4S-r 'xterm -fa "Ubuntu Mono" +sb -fs 10 -cc 46:48,47:48,63:48,37:48,38:48,35:48,58:48,45:48,126:48,43:48,61:48,64:48,36:48 -bg black -fg red -title "BE CAREFUL" -e login root'
 
 # lock the screen with 4-l
-bind-key 4-l slock
+bind-key 4S-l slock
 
 # Use win and t, w for web Telegram and Whatsapp. By running it with the "--app" flag
 # window decoration seems to be removed but, more imporant, WM_CLASS inherits the URL
@@ -124,15 +138,16 @@ bind-key 4-l slock
 bind-key 4-t 'iridium --proxy-server="socks5://127.0.0.1:8000" --app=https://web.telegram.org/'
 bind-key 4-w "iridium --app=https://web.whatsapp.com/"
 
+# Reload config
 bind-key CMS-r reload
 
-# bind-key 4-p "rofi -combi-modi window,drun,ssh -theme solarized -font \"hack 10\" -show combi"
+# Rofi
 bind-key 4-p "rofi -combi-modi window,drun,ssh -theme solarized -font \"hack 10\" -show combi -icon-theme \"Papirus\" -show-icons"
 
 bind-key 4-h window-htile
 bind-key 4-v window-vtile
 
-bind-key 4-c window-close
+bind-key 4S-c window-close
 
 # Mouse bindings
 bind-mouse "1" menu-window
