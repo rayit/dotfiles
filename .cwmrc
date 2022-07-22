@@ -166,9 +166,10 @@ bind-key 4S-c window-close
 # Guit
 bind-key 4S-q quit
 bind-key 4S-r restart
-bind-key 4S-f window-fillscreen
+bind-key 4S-f window-fullscreen
 bind-key 4-j            window-cycle
 bind-key 4-k            window-rcycle
+
 # Application Keybindings
 bind-key 4-comma        voldown
 bind-key 4-period       volup
